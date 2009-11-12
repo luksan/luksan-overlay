@@ -1,0 +1,15 @@
+
+Index: knetworkmanager-0.7~~svn908338/configure.in.in
+===================================================================
+--- knetworkmanager-0.7~~svn908338.orig/configure.in.in	2008-01-10 09:02:17.000000000 +0100
++++ knetworkmanager-0.7~~svn908338/configure.in.in	2009-01-11 06:22:30.000000000 +0100
+@@ -1,6 +1,8 @@
+ #MIN_CONFIG(3.2)
+ CXXFLAGS="$CXXFLAGS $KDE_DEFAULT_CXXFLAGS"
+ 
++AM_INIT_AUTOMAKE(knetworkmanager, 0.7, thoenig@suse.de)
++
+ if test "$build_arts" = "yes"; then
+     AC_DEFINE(USE_ARTS, 1, [If we use arts volume])
+     LIB_ARTS="-lartskde"
+
