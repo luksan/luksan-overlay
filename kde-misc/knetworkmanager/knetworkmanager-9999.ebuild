@@ -3,12 +3,11 @@
 # $Header: $
 
 EAPI="2"
+EGIT_REPO_URI="/home/lukas/Projects/networkmanagement"
 
-KMNAME="kdereview"
-KMMODULE="networkmanagement"
-QT_MINIMAL="4.6.0_beta"
+QT_MINIMAL="4.5.3"
 
-inherit kde4-base
+inherit kde4-base git
 
 DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
