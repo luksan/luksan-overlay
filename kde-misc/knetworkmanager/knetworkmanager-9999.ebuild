@@ -13,7 +13,7 @@ DESCRIPTION="KDE frontend for NetworkManager"
 HOMEPAGE="http://kde.org/"
 
 LICENSE="GPL-2 LGPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="4"
 IUSE="consolekit debug +networkmanager wicd"
 
