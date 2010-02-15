@@ -28,7 +28,10 @@ KMEXTRACTONLY="
 "
 KMLOADLIBS="libkdepim libkleo"
 
-PATCHES=( "${FILESDIR}/gnokii_conf_check.patch" )
+PATCHES=( 
+		"${FILESDIR}/gnokii_conf_check.patch"
+		"${FILESDIR}/fix-import-of-empty-entry.patch"
+		)
 
 src_configure() {
 	mycmakeargs=(
