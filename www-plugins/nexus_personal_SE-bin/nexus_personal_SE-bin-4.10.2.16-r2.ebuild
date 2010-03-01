@@ -19,7 +19,7 @@ IUSE="doc ${BROWSERS}"
 
 S=${WORKDIR}/personal-${PV}
 
-RDEPEND="app-crypt/mit-krb5
+RDEPEND="!amd64? ( app-crypt/mit-krb5
 	dev-libs/atk
 	dev-libs/expat
 	dev-libs/glib:2
@@ -30,7 +30,7 @@ RDEPEND="app-crypt/mit-krb5
 	x11-libs/libX11
 	x11-libs/libXinerama
 	x11-libs/pango
-	virtual/jre
+	virtual/jre )
 	amd64? ( www-plugins/nspluginwrapper )"
 DEPEND=""
 
