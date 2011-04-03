@@ -6,18 +6,14 @@ EAPI="2"
 inherit eutils multilib
 
 DESCRIPTION="Internet banking plugin for technology by BankID company"
-SRC_URI="https://test.bankid.com/InstallBankidCom/InstallFiles/LinuxPersonal.tgz"
+SRC_URI="https://test.bankid.com/InstallBankidCom/InstallFiles/personal-${PV}.tar.gz"
 HOMEPAGE="http://bankid.com/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="as-is"
 
-# Works with these browsers
-BROWSERS="epiphany firefox mozilla seamonkey"
-IUSE="doc ${BROWSERS}"
-
-S=${WORKDIR}/personal-${PV}
+IUSE="doc"
 
 RDEPEND="
 	!amd64? ( 
@@ -41,10 +37,14 @@ DEPEND="
 
 RESTRICT="strip"
 
-QA_TEXTRELS="opt/${P}/*.so"
+QA_TEXTRELS="opt/${PN}/*.so"
+
+S=${WORKDIR}/personal-${PV}
+
+NSPLUGIN="/usr/lib32/nsbrowser/plugins/libnexuspersonal.so"
 
 src_install() {
-	local id=/opt/${P}
+	local id=/opt/${PN}
 	local ubin=/usr/local/bin
 	local lib=$(get_abi_LIBDIR x86)
 
@@ -71,28 +71,28 @@ src_install() {
 
 	make_desktop_entry personal "Nexus Personal" ${PN} Utility
 
-	dosym ${id}/libplugins.so /usr/${lib}/nsbrowser/plugins/libnexuspersonal.so \
-		|| die "dosym failed."
+	dosym ${id}/libplugins.so "${NSPLUGIN}" || die "dosym failed."
 
-	#dosym /usr/${lib}/libcurl.so ${id}/libcurl-gnutls.so.4 \
-	#	|| die "dosym failed."
+	# Create the env.d entry
+	echo "LDPATH=${id}" > 90nexus-personal
+	doenvd 90nexus-personal
 
-	for i in ${BROWSERS}; do
-		if use ${i}; then
-			make_wrapper ${i}-nexus ${i} ${id} ${id}
-		fi
-	done
 }
 
 pkg_postinst() {
-	einfo
-	for i in ${BROWSERS}; do
-		if use ${i}; then
-			einfo "Run '${i}-nexus' for BankID plugin support."
-		fi
-	done
-	einfo "For all other browsers:"
-	einfo "\texport LD_LIBRARY_PATH=\"\${LD_LIBRARY_PATH}:${ROOT}opt/${P}\""
-	einfo "for BankID plugin support, then start your browser."
-	einfo
+	if use amd64; then
+		einfo "Installing 64-bit nsplugin wrapper"
+		nspluginwrapper -i "${NSPLUGIN}"
+	fi
 }
+
+pkg_postrm() {
+	if use amd64; then
+		NSW=$(nspluginwrapper -l |grep -m1 npwrapper.libnexuspersonal.so)
+		if [ "x$NSW" != "x" ] ; then
+			einfo "Removing nsplugin wrapper"
+			nspluginwrapper -r "${NSW}"
+		fi
+	fi
+}
+
