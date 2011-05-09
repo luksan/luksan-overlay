@@ -39,6 +39,7 @@ DEPEND=">=dev-lang/python-2.5
 	jack? ( media-sound/jack-audio-connection-kit )
 	portaudio? ( >=media-libs/portaudio-19 )
 	qt4? ( 	dev-python/PyQt4[opengl,X]
+			x11-libs/qt-qt3support
 			x11-libs/qwt:5
 			>=x11-libs/qwtplot3d-0.2.6-r2 )
 	sdl? ( media-libs/libsdl )
