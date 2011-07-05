@@ -4,7 +4,11 @@
 
 EAPI="2"
 
+PYTHON_DEPEND="2"
 DISTUTILS_SRC_TEST="setup.py"
+PYTHON_MODNAME="rbtools"
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="3.*"
 
 inherit distutils
 
