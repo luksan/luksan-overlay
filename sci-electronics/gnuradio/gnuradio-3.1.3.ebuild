@@ -6,10 +6,10 @@ inherit flag-o-matic eutils
 
 DESCRIPTION="GNU Radio"
 LICENSE="GPL-2"
-HOMEPAGE="http://www.gnuradio.org/trac"
+HOMEPAGE="http://gnuradio.org/redmine/projects/gnuradio/wiki"
 SRC_URI="ftp://ftp.gnu.org/gnu/gnuradio/${P}.tar.gz"
 SLOT="0"
-IUSE="alsa comedi debug doc examples fortran jack oss portaudio sdl usb usrp wxwindows"
+IUSE="alsa comedi debug doc examples fortran jack oss portaudio sdl usb usrp wxwidgets"
 KEYWORDS="x86 amd64"
 
 DEPEND="virtual/libc

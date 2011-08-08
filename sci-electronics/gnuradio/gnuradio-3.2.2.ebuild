@@ -8,10 +8,10 @@ inherit flag-o-matic eutils
 
 DESCRIPTION="GNU Radio"
 LICENSE="GPL-2"
-HOMEPAGE="http://www.gnuradio.org/trac"
+HOMEPAGE="http://gnuradio.org/redmine/projects/gnuradio/wiki"
 SRC_URI="ftp://ftp.gnu.org/gnu/gnuradio/${P}.tar.gz"
 SLOT="0"
-IUSE="alsa comedi debug doc dot examples fortran grc jack oss portaudio sdl usb usrp usrp2 wxwindows qt4"
+IUSE="alsa comedi debug doc dot examples fortran grc jack oss portaudio sdl usb usrp usrp2 wxwidgets qt4"
 KEYWORDS="x86 amd64"
 
 DEPEND=">=dev-lang/python-2.5

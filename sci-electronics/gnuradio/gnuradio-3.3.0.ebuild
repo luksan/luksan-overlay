@@ -11,7 +11,7 @@ inherit flag-o-matic eutils python fdo-mime
 
 DESCRIPTION="GNU Radio"
 LICENSE="GPL-2"
-HOMEPAGE="http://www.gnuradio.org/trac"
+HOMEPAGE="http://gnuradio.org/redmine/projects/gnuradio/wiki"
 SRC_URI="ftp://ftp.gnu.org/gnu/gnuradio/${P}.tar.gz"
 SLOT="0"
 IUSE="alsa comedi doc dot examples grc jack oss portaudio sdl usb usrp usrp2 wxwidgets qt4"
