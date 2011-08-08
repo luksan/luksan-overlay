@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 HOMEPAGE="http://gnuradio.org/redmine/projects/gnuradio/wiki"
 SRC_URI="ftp://ftp.gnu.org/gnu/gnuradio/${P}.tar.gz"
 SLOT="0"
-IUSE="alsa comedi doc dot examples grc jack oss portaudio sdl usb usrp usrp2 wxwidgets qt4"
+IUSE="alsa comedi doc dot examples grc jack oss portaudio sdl usrp usrp2 wxwidgets qt4"
 KEYWORDS="x86 amd64"
 
 DEPEND=">=dev-lang/python-2.5
@@ -43,9 +43,8 @@ DEPEND=">=dev-lang/python-2.5
 			x11-libs/qwt:5
 			>=x11-libs/qwtplot3d-0.2.6-r2 )
 	sdl? ( media-libs/libsdl )
-	usb? ( dev-libs/libusb )
 	usrp? (	>=dev-embedded/sdcc-2.8.0
-			virtual/libusb:0 )
+			virtual/libusb )
 	wxwidgets? ( dev-python/wxpython:2.8 
 			dev-python/numpy )"
 
