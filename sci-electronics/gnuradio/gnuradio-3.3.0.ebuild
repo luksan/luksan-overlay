@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
 
 # TODO: check if GNURadio works with Python3
 PYTHON_DEPEND="2:2.5"
@@ -114,13 +114,6 @@ src_test()
 	emake check || die "emake check failed"
 }
 
-# TODO
-
-# *** GRC Post-Install Message ***
-# To install icons, mime type, and menu items
-# for a freedesktop.org system (Gnome/KDE/Xfce):
-#	  >>> sudo grc_setup_freedesktop install
-
 src_install() {
 	# Prevent: 
 		# *** Post-Install Message ***    
@@ -140,7 +133,7 @@ src_install() {
 	fi
 	# It seems that the examples are installed whether configured or not
 	rm -rf "${D}/usr/share/gnuradio/examples"
-	
+
 	# Remove useless files in the doc dir
 	find "${D}/usr/share/doc/${PF}/html" -name '*.md5' -delete
 	rm -rf "${D}/usr/share/doc/${PF}/xml"
@@ -148,13 +141,13 @@ src_install() {
 	# We install the mimetypes to the correct locations from the ebuild
 	rm -rf "${D}/usr/share/gnuradio/grc/freedesktop"
 	rm -f "${D}/usr/bin/grc_setup_freedesktop"
-	
+
 	# Install icons, menu items and mime-types for GRC
 	if use grc ; then
 		local fd_path="${S}/grc/freedesktop"
 		insinto /usr/share/mime/packages
 		doins "${fd_path}/gnuradio-grc.xml" || die "failure installing mime-types"
-		
+
 		domenu "${fd_path}/"*.desktop || die ".desktop file install failed"
 		doicon "${fd_path}/"*.png || die "icon install failed"
 	fi
@@ -166,7 +159,7 @@ src_install() {
 GRC_ICON_SIZES="32 48 64 128 256"
 pkg_postinst()
 {
-	python_mod_optimize $(python_get_sitedir)/gnuradio
+	python_mod_optimize gnuradio
 
 	if use grc ; then
 		fdo-mime_desktop_database_update
@@ -185,7 +178,7 @@ pkg_postinst()
 
 pkg_postrm()
 {
-	python_mod_cleanup $(python_get_sitedir)/gnuradio
+	python_mod_cleanup gnuradio
 
 	if use grc ; then
 		fdo-mime_desktop_database_update
