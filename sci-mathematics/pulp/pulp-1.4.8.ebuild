@@ -2,6 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-python/axiom/axiom-0.5.27.ebuild,v 1.2 2008/04/03 21:44:49 lordvan Exp $
 
+EAPI=3
+
+PYTHON_DEPEND="2:2.5"
+SUPPORT_PYTHON_ABIS=1
+RESTRICT_PYTHON_ABIS="3.*"
+
 inherit distutils eutils
 
 MY_P="PuLP-${PV}"
@@ -15,23 +21,11 @@ SLOT="0"
 KEYWORDS="~ia64 ~ppc64 ~x86 ~amd64"
 IUSE="examples"
 
-DEPEND=">=dev-lang/python-2.5"
-RDEPEND="${DEPEND}"
-
 S=${WORKDIR}/${MY_P}
 
 DOCS=""
 
 EXAMPLES="pulp-or/examples/*"
-
-src_unpack() {
-	distutils_src_unpack
-}
-
-#src_compile() {
-#	# skip this, or epsilon will install the temporary "build" dir
-#	true
-#}
 
 src_install() {
 	distutils_src_install
@@ -41,7 +35,3 @@ src_install() {
 		doins -r pulp-or/examples
 	fi
 }
-
-#src_test() {
-#	PYTHONPATH=. trial axiom || die "trial failed"
-#}
