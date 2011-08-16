@@ -1,0 +1,14 @@
+diff --git a/build.xml b/build.xml
+index e94c086..aaafe9d 100644
+--- a/build.xml
++++ b/build.xml
+@@ -63,9 +63,6 @@
+             <fileset dir="${aw.resources}"/>
+             <fileset dir="${build.dir}" includes="**/*.class"/>
+ 
+-            <zipfileset src="${aw.lib}/${antlr3.jar}" excludes="**/*.txt"/>
+-            <zipfileset src="${aw.lib}/${jgoodies.jar}"/>
+-
+             <manifest>
+                 <attribute name="Version" value="${version}"/>
+                 <attribute name="Main-Class" value="org.antlr.works.IDE"/>
