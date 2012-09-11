@@ -8,8 +8,8 @@ inherit eutils multilib
 remote_basename="BISP-${PV}"
 
 DESCRIPTION="Internet banking plugin for technology by BankID"
-SRC_URI="https://test.bankid.com/InstallBankidCom/InstallFiles/${remote_basename}.tar.gz -> nexus_personal-bin-${PV}.tar.gz"
-HOMEPAGE="http://bankid.com/"
+SRC_URI="http://install.bankid.com/Repository/${remote_basename}.tar.gz -> nexus_personal-bin-${PV}.tar.gz"
+HOMEPAGE="http://test.bankid.com/"
 
 KEYWORDS="-* ~amd64 ~x86"
 SLOT="0"
