@@ -19,7 +19,7 @@ DEPEND="dev-python/unittest2
 	dev-python/jinja
 	dev-python/yolk
 	dev-python/pygments
-	dev-python/argparse
+	virtual/python-argparse
 	>=dev-python/jaxml-3.02
 	app-portage/gentoolkit
 	app-portage/gentoolkit-dev
