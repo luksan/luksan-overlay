@@ -2,22 +2,23 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
-SUPPORTS_PYTHON_ABIS=1
+EAPI=5
 
-PYTHON_MODNAME="pygraph"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils
 
 DESCRIPTION="A library for working with graphs in Python"
 HOMEPAGE="http://code.google.com/p/python-graph/"
-SRC_URI="http://python-graph.googlecode.com/files/${P}.tar.bz2"
+SRC_URI="http://python-graph.googlecode.com/files/${P}.zip"
 LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 IUSE=""
 DEPEND="dev-python/setuptools"
-RDEPEND="media-gfx/pydot"
+RDEPEND="media-gfx/pydot
+	virtual/pyparsing"
+S="${WORKDIR}/python-graph/"
 
 DISTUTILS_SETUP_FILES=( "core|setup.py" "dot|setup.py" )
 
