@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-USE_RUBY="ruby18"
+USE_RUBY="ruby18 ruby19 ruby20 ruby21"
 
 inherit ruby-fakegem
 
@@ -17,11 +17,13 @@ IUSE=""
 
 RUBY_FAKEGEM_EXTRAINSTALL="conf/"
 
-ruby_add_rdepend "dev-ruby/json_pure
-	dev-ruby/parseconfig
-	>=dev-ruby/commander-4.0
-	dev-ruby/net-ssh
-	>=dev-ruby/rest-client-1.6
-	>=dev-ruby/highline-1.5.1
+ruby_add_rdepend "
 	dev-ruby/archive-tar-minitar
-	dev-ruby/test-unit"
+	>=dev-ruby/commander-4.0
+	>=dev-ruby/highline-1.6.11
+	>=dev-ruby/httpclient-2.2
+	>=dev-ruby/net-scp-1.1.2
+	>=dev-ruby/net-ssh-2.0.11
+	>=dev-ruby/net-ssh-multi-1.2.0
+	dev-ruby/open4
+	"
