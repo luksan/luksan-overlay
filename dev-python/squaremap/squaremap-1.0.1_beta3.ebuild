@@ -2,12 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=5
 
+PYTHON_COMPAT=( python2_7 )
 SUPPORT_PYTHON_ABIS=1
 RESTRICT_PYTHON_ABIS="3.*"
 
-inherit distutils
+inherit distutils-r1
 
 MY_PN="SquareMap"
 MY_PV="${PV/_beta/b}"

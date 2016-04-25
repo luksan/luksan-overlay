@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit distutils
+inherit distutils-r1
 
 DESCRIPTION="A library for working with graphs in Python"
 HOMEPAGE="http://code.google.com/p/python-graph/"

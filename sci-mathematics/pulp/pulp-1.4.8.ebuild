@@ -2,13 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-python/axiom/axiom-0.5.27.ebuild,v 1.2 2008/04/03 21:44:49 lordvan Exp $
 
-EAPI=3
+EAPI=5
 
-PYTHON_DEPEND="2:2.5"
+
+PYTHON_COMPAT=( python2_7 )
+PYTHON_DEPEND="2:2.7"
 SUPPORT_PYTHON_ABIS=1
 RESTRICT_PYTHON_ABIS="3.*"
 
-inherit distutils eutils
+inherit distutils-r1 eutils
 
 MY_P="PuLP-${PV}"
 
