@@ -10,7 +10,7 @@ SRC_URI=""
 LICENSE="GPL-2 GPL-2+ LGPL-2 CC-BY-SA-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+minimal"
+IUSE="minimal"
 
 CDEPEND="!minimal? ( =dev-embedded/arduino-ide-${PV} )
 		=dev-embedded/arduino-libs-${PV}"
