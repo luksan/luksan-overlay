@@ -1,0 +1,25 @@
+--- a/CMakeLists.txt	2019-12-21 21:07:45.758290000 +0000
++++ b/CMakeLists.txt	2019-12-21 21:50:24.889971148 +0000
+@@ -121,12 +121,14 @@
+ message(STATUS "Using in-tree libdxfrw")
+ add_subdirectory(extlib/libdxfrw)
+
++if(WIN32 OR APPLE)
+ message(STATUS "Using in-tree flatbuffers")
+ set(FLATBUFFERS_BUILD_FLATLIB ON CACHE BOOL "")
+ set(FLATBUFFERS_BUILD_FLATC ON CACHE BOOL "")
+ set(FLATBUFFERS_BUILD_FLATHASH OFF CACHE BOOL "")
+ set(FLATBUFFERS_BUILD_TESTS OFF CACHE BOOL "")
+ add_subdirectory(extlib/flatbuffers EXCLUDE_FROM_ALL)
++endif()
+
+ message(STATUS "Using in-tree q3d")
+ add_subdirectory(extlib/q3d)
+@@ -186,6 +188,7 @@
+     find_package(ZLIB REQUIRED)
+     find_package(PNG REQUIRED)
+     find_package(Freetype REQUIRED)
++    find_package(Flatbuffers CONFIG REQUIRED)
+     pkg_check_modules(CAIRO REQUIRED cairo)
+ endif()
+
